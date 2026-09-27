@@ -1,0 +1,99 @@
+<div class="features">
+    <div class="feature">
+      <div>🔐</div>
+      خرید امن
+    </div>
+
+    <div class="feature">
+      <div>🏆</div>
+      تضمین اصالت
+    </div>
+
+    <div class="feature">
+      <div>📦</div>
+      ارسال سفارش
+    </div>
+
+    <div class="feature">
+      <div>📞</div>
+      پشتیبانی
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <button onclick="home()">
+    <span>🏠</span>
+    خانه
+  </button>
+
+  <button onclick="alert('بخش محصولات')">
+    <span>🛍️</span>
+    محصولات
+  </button>
+
+  <button onclick="showCart()">
+    <span>🛒</span>
+    سبد خرید
+  </button>
+
+  <button onclick="alert('برای پیگیری سفارش، شماره سفارش خود را وارد کنید.')">
+    <span>📦</span>
+    سفارش‌ها
+  </button>
+
+  <button onclick="alert('پشتیبانی ملودی گلد')">
+    <span>📞</span>
+    پشتیبانی
+  </button>
+</footer>
+
+<script>
+
+let cart = [];
+
+function addCart(product) {
+  cart.push(product);
+  document.getElementById("cartCount").innerText = cart.length;
+  alert("✅ " + product + " به سبد خرید اضافه شد.");
+}
+
+function showCart() {
+  if (cart.length === 0) {
+    alert("🛒 سبد خرید شما خالی است.");
+    return;
+  }
+
+  alert(
+    "🛒 سبد خرید ملودی گلد\n\n" +
+    cart.map((item, index) => (index + 1) + ". " + item).join("\n") +
+    "\n\nمرحله پرداخت در نسخه بعدی اضافه می‌شود."
+  );
+}
+
+function searchProducts(value) {
+  let products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
+    let name = product.dataset.name;
+
+    if (name.includes(value) || value === "") {
+      product.style.display = "";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+
+function home() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+</script>
+
+</body>
+</html>
