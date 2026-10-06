@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملودی گلد | فروش آنلاین طلا</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#faf8f4;color:#2d241d;line-height:1.8}
+.top{background:#2d2118;color:#f7ead2;text-align:center;padding:7px;font-size:12px}
+header{background:white;position:sticky;top:0;z-index:5;border-bottom:1px solid #eee}
+.nav,.container{width:92%;max-width:1050px;margin:auto}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:23px;font-weight:bold;color:#9a6b24}.logo small{display:block;font-size:10px;color:#777;font-weight:normal}
+.cart{border:0;background:#f3eadc;color:#6f4a1d;border-radius:14px;padding:9px 13px}
+.hero{padding:45px 0;background:linear-gradient(135deg,#fff,#f3e8d8)}.heroGrid{display:grid;grid-template-columns:1.4fr .8fr;gap:25px;align-items:center}
+h1{font-size:clamp(28px,5vw,48px);margin:0 0 10px}.hero p{color:#66594d}
+.btn{display:inline-block;margin-top:18px;background:#9a6b24;color:white;padding:10px 20px;border-radius:14px}
+.price{background:#fff;border:1px solid #eadcc9;border-radius:22px;padding:22px}.price b{font-size:28px;color:#9a6b24}
+section{padding:30px 0}.title{margin-bottom:16px}.cats{display:flex;gap:9px;overflow:auto}.cat{white-space:nowrap;background:white;border:1px solid #eadfce;border-radius:14px;padding:8px 15px;color:#68491f}
+.search{width:100%;padding:13px;border:1px solid #e5d9c9;border-radius:15px;margin-bottom:16px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:white;border:1px solid #eee2d2;border-radius:19px;overflow:hidden}.pic{height:175px;background:linear-gradient(135deg,#eee5d8,#d8c5aa);display:flex;align-items:center;justify-content:center;font-size:55px}.body{padding:13px}.body h3{font-size:15px;margin:0}.muted{font-size:12px;color:#887b70}.gold{color:#9a6b24;font-weight:bold;margin:6px 0}.add{width:100%;border:0;background:#2d2118;color:white;border-radius:11px;padding:9px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.feature{background:white;border:1px solid #eee2d2;border-radius:18px;padding:17px;text-align:center}
+.offer{background:#2d2118;color:white;border-radius:23px;padding:25px}.offer p{color:#eadbc5}
+footer{background:#241a14;color:#eadbcf;padding:32px 0 80px}.bottom{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ddd;display:flex;justify-content:space-around;padding:7px;z-index:10}.bottom button{border:0;background:none;font-size:11px;color:#665a50}.bottom span{display:block;font-size:18px}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;align-items:flex-end}.modal.show{display:flex}.box{background:white;width:100%;max-width:650px;margin:auto;padding:22px;border-radius:22px 22px 0 0}
+.item{display:flex;justify-content:space-between;border-bottom:1px solid #eee;padding:12px 0}.empty{text-align:center;color:#887b70;padding:25px}
+@media(max-width:800px){.heroGrid{grid-template-columns:1fr}.products{grid-template-columns:repeat(2,1fr)}.features{grid-template-columns:repeat(2,1fr)}} 
+</style>
+</head>
+<body>
+<div class="top">✨ خرید مطمئن طلا، با احترام به انتخاب شما ✨</div>
+<header><div class="nav"><div class="logo">✨ ملودی گلد<small>زیبایی ماندگار، انتخابی مطمئن</small></div><button class="cart" onclick="openCart()">🛒 سبد خرید <b id="count">0</b></button></div></header>
+
+<section class="hero"><div class="container heroGrid"><div><h1>طلای مورد علاقه‌ات را پیدا کن ✨</h1><p>ملودی گلد؛ فروش آنلاین طلا با انتخابی زیبا، شفاف و مطمئن.</p><a class="btn" href="#products">مشاهده محصولات 🛍️</a></div><div class="price"><small>قیمت هر گرم طلای ۱۸ عیار</small><br><b>در حال به‌روزرسانی</b><br><small>قیمت نهایی هنگام ثبت سفارش مشخص می‌شود.</small></div></div></section>
+
+<section><div class="container"><h2 class="title">دسته‌بندی‌ها</h2><div class="cats"><button class="cat" onclick="filter('همه')">همه</button><button class="cat" onclick="filter('انگشتر')">💍 انگشتر</button><button class="cat" onclick="filter('دستبند')">✨ دستبند</button><button class="cat" onclick="filter('گردنبند')">📿 گردنبند</button><button class="cat" onclick="filter('گوشواره')">💎 گوشواره</button></div></div></section>
+
+<section id="products"><div class="container"><h2>محصولات ملودی گلد</h2><input class="search" id="search" oninput="search()" placeholder="🔎 جستجوی محصول..."><div class="products" id="grid"></div></div></section>
+
+<section><div class="container"><div class="features"><div class="feature">🔐<br><b>خرید امن</b><br><small>روند سفارش شفاف</small></div><div class="feature">🏆<br><b>تضمین اصالت</b><br><small>با خیال راحت انتخاب کنید</small></div><div class="feature">📦<br><b>ارسال سفارش</b><br><small>پیگیری وضعیت سفارش</small></div><div class="feature">📞<br><b>پشتیبانی</b><br><small>همراه شما هستیم</small></div></div></div></section>
+
+<section><div class="container"><div class="offer"><h2>🎁 پیشنهادهای ویژه ملودی گلد</h2><p>از طرح‌های ویژه و هدیه‌های مناسبتی ما باخبر شوید.</p></div></div></section>
+
+<footer><div class="container"><b>✨ ملودی گلد</b><p>فروش آنلاین طلا با ترکیبی از زیبایی، اعتماد و تجربه‌ای ساده و دوست‌داشتنی.</p></div></footer>
+
+<div class="bottom"><button>🏠<br>خانه</button><button onclick="location.href='#products'">🛍️<br>محصولات</button><button onclick="openCart()">🛒<br>سبد خرید</button><button onclick="alert('بخش پیگیری سفارش به‌زودی فعال می‌شود.')">📦<br>سفارش‌ها</button><button onclick="alert('پشتیبانی ملودی گلد به‌زودی فعال می‌شود.')">📞<br>پشتیبانی</button></div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeCart()"><div class="box"><button onclick="closeCart()">✕</button><h2>🛒 سبد خرید</h2><div id="items"></div></div></div>
+
+<script>
+const products=[
+{id:1,n:'دستبند ظریف ملودی',c:'دستبند',w:'۲.۱۵ گرم',i:'✨'},
+{id:2,n:'گردنبند ظریف طلا',c:'گردنبند',w:'۳.۴۰ گرم',i:'📿'},
+{id:3,n:'انگشتر کلاسیک',c:'انگشتر',w:'۲.۷۰ گرم',i:'💍'},
+{id:4,n:'گوشواره ظریف',c:'گوشواره',w:'۱.۸۰ گرم',i:'💎'}];
+let cart=[];
+function render(list=products){document.getElementById('grid').innerHTML=list.length?list.map(p=>'<div class="card"><div class="pic">'+p.i+'</div><div class="body"><h3>'+p.n+'</h3><div class="muted">'+p.w+'</div><div class="gold">قیمت روز</div><button class="add" onclick="add('+p.id+')">افزودن به سبد 🛒</button></div></div>').join(''):'<div class="empty">محصولی پیدا نشد.</div>'}
+function add(id){cart.push(products.find(p=>p.id===id));document.getElementById('count').textContent=cart.length;alert('محصول به سبد خرید اضافه شد. ✨')}
+function openCart(){document.getElementById('items').innerHTML=cart.length?cart.map((p,i)=>'<div class="item"><span>'+p.i+' '+p.n+'<br><small>'+p.w+'</small></span><button onclick="removeItem('+i+')">حذف</button></div>').join('')+'<p>ثبت نهایی سفارش و پرداخت پس از اتصال فروشگاه به درگاه و ربات تلگرام فعال خواهد شد.</p>':'<div class="empty">سبد خرید شما خالی است 🛒</div>';document.getElementById('modal').classList.add('show')}
+function closeCart(){document.getElementById('modal').classList.remove('show')}
+function removeItem(i){cart.splice(i,1);document.getElementById('count').textContent=cart.length;openCart()}
+function filter(c){render(c==='همه'?products:products.filter(p=>p.c===c))}
+function search(){let q=document.getElementById('search').value;render(products.filter(p=>(p.n+p.c).includes(q)))}
+render();
+</script>
+</body>
+</html>
